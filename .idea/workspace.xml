@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f08f98b7-c7a6-45d7-97c3-8917c65d016b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app_flutter_coding/lib/utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/view/planning.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/planning.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_flutter_coding/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_flutter_coding/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/pubspec.yaml" afterDir="false" />
@@ -52,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666778425216</updated>
-      <workItem from="1666778427083" duration="9827000" />
+      <workItem from="1666778427083" duration="12727000" />
     </task>
     <servers />
   </component>
@@ -69,6 +67,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-3.0.7/lib/src/widgets/calendar_header.dart</url>
+          <line>85</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

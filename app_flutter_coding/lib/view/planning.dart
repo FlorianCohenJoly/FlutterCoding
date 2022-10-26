@@ -6,6 +6,8 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:app_flutter_coding/view/drawer.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import '../utils.dart';
 
@@ -98,6 +100,7 @@ class _TableComplexExampleState extends State<TableComplexExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: Text('TableCalendar - Complex'),
       ),
@@ -136,6 +139,7 @@ class _TableComplexExampleState extends State<TableComplexExample> {
             },
           ),
           TableCalendar<Event>(
+            locale: 'fr_FR',
             firstDay: kFirstDay,
             lastDay: kLastDay,
             focusedDay: _focusedDay.value,
@@ -148,7 +152,7 @@ class _TableComplexExampleState extends State<TableComplexExample> {
             eventLoader: _getEventsForDay,
             holidayPredicate: (day) {
               // Every 20th day of the month will be treated as a holiday
-              return day.day == 20;
+              return day.day == 0;
             },
             onDaySelected: _onDaySelected,
             onRangeSelected: _onRangeSelected,
