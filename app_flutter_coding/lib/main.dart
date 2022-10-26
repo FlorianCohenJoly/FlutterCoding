@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: LoginForm(),
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: 
