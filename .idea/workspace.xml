@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f08f98b7-c7a6-45d7-97c3-8917c65d016b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/ecurie.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" afterDir="false" />
     </list>
@@ -26,7 +27,6 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
     "settings.editor.selected.configurable": "dart.settings",
     "show.migrate.to.gradle.popup": "false"
@@ -47,7 +47,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666778425216</updated>
-      <workItem from="1666778427083" duration="13384000" />
+      <workItem from="1666778427083" duration="17896000" />
     </task>
     <servers />
   </component>
