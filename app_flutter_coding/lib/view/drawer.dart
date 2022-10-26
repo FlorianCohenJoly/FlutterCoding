@@ -75,6 +75,15 @@ class MyDrawer extends StatelessWidget {
                 Text(''),
               ],
             ),
+               ListTile(
+                leading: const Icon(
+                  Icons.logout,
+                ),
+                title: const Text('Déconnexion'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+            ),
           ],
         ),
     );
