@@ -53,7 +53,7 @@ class MyDrawer extends StatelessWidget {
               ),
               title: const Text('Planning'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Planning()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => TableComplexExample()));
               },
             ),
             ListTile(
