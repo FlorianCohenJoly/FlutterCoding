@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f08f98b7-c7a6-45d7-97c3-8917c65d016b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/ecurie.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/view/ecurie.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/ecurie.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,16 +21,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "settings.editor.selected.configurable": "dart.settings",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app_flutter_coding/assets" />
@@ -48,6 +48,8 @@
       <option name="presentableId" value="Default" />
       <updated>1666778425216</updated>
       <workItem from="1666778427083" duration="17896000" />
+      <workItem from="1666814628879" duration="895000" />
+      <workItem from="1666817715628" duration="1804000" />
     </task>
     <servers />
   </component>
