@@ -1,4 +1,6 @@
 import 'package:app_flutter_coding/connexion/login_page.dart';
+import 'package:app_flutter_coding/view/drawer.dart';
+import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: Equitation(),
     );
   }
 }
