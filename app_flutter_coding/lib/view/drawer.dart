@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/view/icons.dart';
+import 'package:app_flutter_coding/view/planning.dart';
+import 'package:app_flutter_coding/view/equitation.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -42,7 +44,16 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(MyFlutterApp.horse_head),
               title: const Text('Équitation'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Equitation()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.calendar_today,
+              ),
+              title: const Text('Planning'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Planning()));
               },
             ),
             ListTile(
@@ -51,6 +62,18 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
               },
+            ),
+            const AboutListTile(
+              icon: Icon(
+                Icons.info,
+              ),
+              applicationName: 'Equitation',
+              applicationVersion: '1.0.0',
+              applicationIcon: Icon(MyFlutterApp.horse_head),
+              applicationLegalese: '© 2021',
+              aboutBoxChildren: [
+                Text(''),
+              ],
             ),
           ],
         ),
