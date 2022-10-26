@@ -3,9 +3,11 @@ import 'dart:developer';
 import 'package:app_flutter_coding/bdd/constant.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelStable.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelSoiree.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 class MongoDatabase {
+  static var collection;
   static var stable;
   static var soiree;
   static connect() async {
@@ -15,11 +17,25 @@ class MongoDatabase {
     var status = db.serverStatus();
     print(status);
     soiree = db.collection(COLLECTION_NAME_SOIREE);
-    stable = db.collection(COLLECTION_NAME);
+    stable = db.collection(COLLECTION_NAME_STABLE);
+    collection = db.collection(COLLECTION_NAME);
     print(await stable.find().toList());
     print(await soiree.find().toList());
   }
 
+  static Future<String> insert(MongoDbModel data) async {
+    try {
+      var result = await collection.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
 
   static Future<List<Map<String, dynamic >>> getData() async {
     final arrData = await stable.find().toList();
