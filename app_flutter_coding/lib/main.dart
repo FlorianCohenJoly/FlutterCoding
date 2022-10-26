@@ -1,5 +1,5 @@
 import 'package:app_flutter_coding/connexion/login_page.dart';
-import 'package:app_flutter_coding/cours.dart';
+import 'package:app_flutter_coding/view/cours.dart';
 import 'package:flutter/material.dart';
 
 void main() {
