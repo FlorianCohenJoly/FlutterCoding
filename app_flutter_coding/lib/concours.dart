@@ -25,7 +25,7 @@ class _ConcoursState extends State<Concours> {
     concours.date = date;
   }
 
-  final _CoursKey = GlobalKey<FormState>();
+  final _ConcoursKey = GlobalKey<FormState>();
 
   final nomController = TextEditingController();
   final adresseController = TextEditingController();
@@ -49,7 +49,7 @@ class _ConcoursState extends State<Concours> {
               child: const Text("Ajouter un concours", style: TextStyle(fontSize: 32),)
             ),
             Form(
-              key: _CoursKey,
+              key: _ConcoursKey,
               child: SizedBox(
                 width: 400,
                 child: Column(
