@@ -1,5 +1,5 @@
 import 'package:app_flutter_coding/connexion/login_page.dart';
-import 'package:app_flutter_coding/cours.dart';
+import 'package:app_flutter_coding/concours.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: Concours(),
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: 
