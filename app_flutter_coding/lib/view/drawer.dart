@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/view/icons.dart';
 import 'package:app_flutter_coding/view/planning.dart';
 import 'package:app_flutter_coding/view/equitation.dart';
+import 'package:app_flutter_coding/view/ecurie.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -60,7 +61,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(MyFlutterApp.horseshoe),
               title: const Text('Écurie'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Ecurie()));
               },
             ),
             const AboutListTile(
