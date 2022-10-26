@@ -1,4 +1,5 @@
 import 'package:app_flutter_coding/connexion/login_page.dart';
+import 'package:app_flutter_coding/cours.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,6 +16,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: LoginPage(),
+      theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: 
+            ElevatedButton.styleFrom(
+              primary: Color.fromARGB(255, 33, 48, 50)
+            )
+        )
+      )
     );
   }
 }
