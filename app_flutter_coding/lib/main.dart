@@ -2,6 +2,7 @@ import 'package:app_flutter_coding/connexion/login_page.dart';
 import 'package:app_flutter_coding/view/drawer.dart';
 import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:app_flutter_coding/view/cours.dart';
+import 'package:app_flutter_coding/view/concours.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
