@@ -13,11 +13,6 @@ class ConcoursList extends StatefulWidget {
 
 class _ConcoursListState extends State<ConcoursList> {
 
-  final Future<String> calculation = Future<String>.delayed(
-    const Duration(seconds: 2),
-        () => 'Data Loaded',
-  );
-
   @override
   Widget build(BuildContext context) {
 
