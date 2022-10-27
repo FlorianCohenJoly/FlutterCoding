@@ -14,7 +14,7 @@ import 'bdd/mongodb.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MongoDatabase.connect();
-
+  await initializeDateFormatting();
 
   runApp(const MyApp());
 }
