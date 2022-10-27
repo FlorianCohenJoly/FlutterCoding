@@ -1,3 +1,4 @@
+import 'package:app_flutter_coding/view/concours.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/view/drawer.dart';
 import 'package:app_flutter_coding/view/cours.dart';
@@ -51,7 +52,10 @@ class _EquitationState extends State<Equitation> {
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/concours');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ConcoursList()),
+                  );
                 },
                 child: const Text('Concours'),
               ),

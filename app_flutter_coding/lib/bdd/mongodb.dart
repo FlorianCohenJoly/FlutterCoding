@@ -34,7 +34,17 @@ class MongoDatabase {
 
 
 
-  static Future<void> update (MongoDbModel data) async{
+  static Future<void> update (MongoDbModelStable data) async{
+    var result = await stable.findOne({"_id": data.id});
+    result['name'] = data.name;
+    result['cavalier'] = data.cavalier;
+    result['horse'] = data.horse;
+
+    var response = await stable.save(result);
+    inspect(response);
+  }
+
+  static Future<void> updateData (MongoDbModel data) async{
     var result = await collection.findOne({"_id": data.id});
     result['name'] = data.name;
     result['mdp'] = data.mdp;
@@ -48,7 +58,7 @@ class MongoDatabase {
 
 
 
-  static Future<String> insert(MongoDbModel data) async {
+  static Future<String> insereData(MongoDbModel data) async {
     try {
       var result = await collection.insertOne(data.toJson());
       if (result.isSucces) {
