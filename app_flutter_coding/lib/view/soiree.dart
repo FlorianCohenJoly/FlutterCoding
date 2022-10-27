@@ -11,6 +11,7 @@ class Soiree extends StatefulWidget {
 
 class NewSoiree{
   String? theme;
+  String? name;
   String? date;
   String? heure;
   String? addresse;
@@ -21,9 +22,10 @@ const List<String> list = <String>['Apéro', 'Repas'];
 
 class _SoireeState extends State<Soiree> {
 
-  void submitForm(date, heure, addresse){
+  void submitForm(name, date, heure, addresse){
     NewSoiree soiree = NewSoiree();
     soiree.theme = themeController;
+    soiree.name = name;
     soiree.date = date;
     soiree.heure = heure;
     soiree.addresse = addresse;
@@ -38,6 +40,7 @@ class _SoireeState extends State<Soiree> {
   String dropdownValue = list.first;
 
   String? themeController;
+  final nameController = TextEditingController();
   final dateController = TextEditingController();
   final heureController = TextEditingController();
   final addresseController = TextEditingController();
@@ -85,13 +88,20 @@ class _SoireeState extends State<Soiree> {
                               ),
                             ),
                             TextFormField(
+                              controller: nameController,
+                              decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Color.fromARGB(255, 255, 255, 255),
+                                  hintText: "Nom de la soirée"
+                              ),
+                            ),
+                            TextFormField(
                               controller: dateController,
                               decoration: InputDecoration(
                                   filled: true,
                                   fillColor: Color.fromARGB(255, 255, 255, 255),
                                   hintText: "Date de la soirée"
                               ),
-
                             ),
                             TextFormField(
                               controller: heureController,
@@ -118,7 +128,7 @@ class _SoireeState extends State<Soiree> {
 
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      submitForm(dateController.value.text, heureController.value.text, addresseController.value.text);
+                                      submitForm(nameController.value.text, dateController.value.text, heureController.value.text, addresseController.value.text);
                                     },
                                     child: const Text('Créer'),
                                   ),

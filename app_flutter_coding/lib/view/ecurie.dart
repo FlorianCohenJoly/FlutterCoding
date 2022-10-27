@@ -58,6 +58,13 @@ class _MongoDbDisplayStateStable extends State<MongoDbDisplayStable> {
         padding: const EdgeInsets.all(10.0),
            child: ListTile(
             title: Text(data.name),
+            trailing: IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                
+                setState(() {});
+              },
+            ),
             onTap: () {
               showDialog(
                 context: context,
