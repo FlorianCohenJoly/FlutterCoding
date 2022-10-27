@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f08f98b7-c7a6-45d7-97c3-8917c65d016b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app_flutter_coding/lib/bdd/constant.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_flutter_coding/lib/bdd/display.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_flutter_coding/lib/bdd/mongoDBModelStable.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_flutter_coding/lib/bdd/mongodb.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/drawer.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_flutter_coding/lib/view/ecurie.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/lib/view/ecurie.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_flutter_coding/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_flutter_coding/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app_flutter_coding/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +58,7 @@
       <updated>1666778425216</updated>
       <workItem from="1666778427083" duration="17896000" />
       <workItem from="1666814628879" duration="895000" />
-      <workItem from="1666817715628" duration="1804000" />
+      <workItem from="1666817715628" duration="13743000" />
     </task>
     <servers />
   </component>
