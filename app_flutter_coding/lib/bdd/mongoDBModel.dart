@@ -77,3 +77,34 @@ class MongoDbModelCours {
         "discipline": discipline,
     };
 }
+class MongoDbModelConcours {
+    MongoDbModelConcours({
+      required  this.id,
+      required  this.nom,
+      required this.adresse,
+      required  this.photo,
+      required this.date,
+    });
+
+    ObjectId id;
+    String nom;
+    String adresse;
+    String photo;
+    String date;
+
+    factory MongoDbModelConcours.fromJson(Map<String, dynamic> json) => MongoDbModelConcours(
+        id: json["_id"],
+        nom: json["nom"],
+        adresse: json["adresse"],
+        photo: json["photo"],
+        date: json["date"],
+        );
+
+    Map<String, dynamic> toJson() => {
+        "_id": id,
+        "nom": nom,
+        "adresse": adresse,
+        "photo": photo,
+        "date": date,
+    };
+}

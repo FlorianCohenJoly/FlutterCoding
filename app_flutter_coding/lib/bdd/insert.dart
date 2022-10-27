@@ -139,7 +139,14 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
     final data =
         MongoDbModel(id: _id, name: name, mdp: mdp, mail: mail, pp: pp);
     var result = await MongoDatabase.insert(data);
+  }
 
+  Future<void> _insertDataConcours(
+      String nom, String adresse, String photo, String date) async {
+    var _id = M.ObjectId();
+    final data =
+        MongoDbModelConcours(id: _id, nom: nom, adresse: adresse, photo: photo, date: date);
+    var result = await MongoDatabase.insertConcours(data);
   }
 }
 

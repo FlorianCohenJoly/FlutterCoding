@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_flutter_coding/bdd/insert.dart';
 
 class Concours extends StatefulWidget {
   const Concours({ Key? key }) : super(key: key);
@@ -101,7 +102,7 @@ class _ConcoursState extends State<Concours> {
                         
                         child: ElevatedButton(
                           onPressed: () {
-                            submitForm(nomController.value.text, adresseController.value.text, photoController.value.text, dateController.value.text);
+                            
                           },
                           child: const Text('Submit'),
                         ),
