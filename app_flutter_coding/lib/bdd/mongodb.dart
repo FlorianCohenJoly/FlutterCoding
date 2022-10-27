@@ -110,6 +110,34 @@ class MongoDatabase {
     }
   }
 
+  static Future<String> insertData(MongoDbModel data) async {
+    try {
+      var result = await stable.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
+  static Future<String> insertCours(MongoDbModelCours data) async {
+    try {
+      var result = await collectionCours.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
   static Future<String> delete(MongoDbModelStable data) async {
     try {
       var result = await stable.remove({"_id": data.id});
