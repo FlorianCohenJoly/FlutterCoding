@@ -41,3 +41,39 @@ class MongoDbModel {
         "pp": pp,
     };
 }
+
+class MongoDbModelCours {
+    MongoDbModelCours({
+      required  this.id,
+      required  this.terrain,
+      required this.date,
+      required  this.heure,
+      required this.duree,
+      required this.discipline,
+    });
+
+    ObjectId id;
+    String terrain;
+    String date;
+    String heure;
+    String duree;
+    String discipline;
+
+    factory MongoDbModelCours.fromJson(Map<String, dynamic> json) => MongoDbModelCours(
+        id: json["_id"],
+        terrain: json["terrain"],
+        date: json["date"],
+        heure: json["heure"],
+        duree: json["duree"],
+        discipline: json["discipline"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "_id": id,
+        "terrain": terrain,
+        "date": date,
+        "heure": heure,
+        "duree": duree,
+        "discipline": discipline,
+    };
+}

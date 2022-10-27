@@ -6,6 +6,7 @@ import 'package:mongo_dart/mongo_dart.dart';
 
 class MongoDatabase {
   static var collection;
+  static var collectionCours;
   static connect() async {
 
     
@@ -15,6 +16,7 @@ class MongoDatabase {
     var status = db.serverStatus();
     print(status);
     collection = db.collection(COLLECTION_NAME);
+    collectionCours = db.collection("cours");
     print(await collection.find().toList());
 
     // Ajouter un users
@@ -40,6 +42,20 @@ class MongoDatabase {
     // await collection.deleteMany({"username": "mp2",});
 
     print(await collection.find().toList());
+  }
+
+  static Future<String> insertCours(MongoDbModelCours data) async {
+    try {
+      var result = await collectionCours.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
   }
 
   static Future<String> insert(MongoDbModel data) async {
