@@ -3,6 +3,7 @@ import 'package:app_flutter_coding/bdd/update.dart';
 import 'package:app_flutter_coding/body_page.dart';
 import 'package:app_flutter_coding/connexion/login_page.dart';
 import 'package:app_flutter_coding/view/concours.dart';
+import 'package:app_flutter_coding/view/concoursForm.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {

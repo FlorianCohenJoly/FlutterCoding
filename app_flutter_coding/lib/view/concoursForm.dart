@@ -1,4 +1,5 @@
 import 'package:app_flutter_coding/body_page.dart';
+import 'package:app_flutter_coding/view/concours.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
@@ -6,7 +7,7 @@ import 'package:app_flutter_coding/bdd/insert.dart';
 import 'package:mongo_dart/mongo_dart.dart' as M;
 
 class Concours extends StatefulWidget {
-  const Concours({ Key? key }) : super(key: key);
+  const Concours({ Key? key, required String title }) : super(key: key);
 
   @override
   _ConcoursState createState() => _ConcoursState();
@@ -110,7 +111,7 @@ class _ConcoursState extends State<Concours> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Body(),
+                                builder: (context) => ConcoursList(),
                               ),
                             );
                           },
