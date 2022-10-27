@@ -57,7 +57,7 @@ class _CoursState extends State<Cours> {
                     Container(
                       color: Color.fromARGB(255, 255, 255, 255),
                       child: DropdownButtonFormField(
-                        dropdownColor: Colors.grey[100],
+                        hint: Text("Terrain du cours"),
                         items: const [
                           DropdownMenuItem(
                             value: "carriere",
@@ -95,6 +95,7 @@ class _CoursState extends State<Cours> {
                     Container(
                       color: Color.fromARGB(255, 255, 255, 255),
                       child: DropdownButtonFormField(
+                        hint: Text("Durée du cours"),
                         items: const [
                           DropdownMenuItem(
                             value: "30min",
@@ -115,6 +116,7 @@ class _CoursState extends State<Cours> {
                     Container(
                       color: Color.fromARGB(255, 255, 255, 255),
                       child: DropdownButtonFormField(
+                        hint: Text("Discipline"),
                         items: const [
                           DropdownMenuItem(
                             value: "dressage",
