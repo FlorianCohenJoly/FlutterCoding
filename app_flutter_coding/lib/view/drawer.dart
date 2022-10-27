@@ -61,7 +61,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(MyFlutterApp.horseshoe),
               title: const Text('Écurie'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Ecurie()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MongoDbDisplayStable()));
               },
             ),
             const AboutListTile(

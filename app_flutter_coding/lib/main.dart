@@ -1,14 +1,21 @@
 import 'package:app_flutter_coding/connexion/login_page.dart';
 import 'package:app_flutter_coding/view/drawer.dart';
+import 'package:app_flutter_coding/view/ecurie.dart';
 import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:app_flutter_coding/view/concours.dart';
 import 'package:app_flutter_coding/view/cours.dart';
 import 'package:app_flutter_coding/view/actu.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModelStable.dart';
 
-void main() {
-  initializeDateFormatting().then((_) => runApp(MyApp()));
+import 'bdd/mongodb.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await MongoDatabase.connect();
+
+
   runApp(const MyApp());
 }
 
