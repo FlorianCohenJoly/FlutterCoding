@@ -1,3 +1,4 @@
+import 'package:app_flutter_coding/view/actu.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/view/icons.dart';
 import 'package:app_flutter_coding/view/planning.dart';
@@ -38,7 +39,7 @@ class MyDrawer extends StatelessWidget {
               ),
               title: const Text('Actualités'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Actualite()));
               },
             ),
             ListTile(
