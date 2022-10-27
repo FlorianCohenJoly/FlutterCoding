@@ -12,7 +12,7 @@ class MongoDbModelSoiree{
     required  this.name,
     required this.date,
     required this.heure,
-    required this.addresse,
+    required this.adresse,
   });
 
   ObjectId id;
@@ -20,7 +20,7 @@ class MongoDbModelSoiree{
   String name;
   String date;
   String heure;
-  String addresse;
+  String adresse;
 
   factory MongoDbModelSoiree.fromJson(Map<String, dynamic> json) => MongoDbModelSoiree(
     id: json["_id"],
@@ -28,7 +28,7 @@ class MongoDbModelSoiree{
     name: json["name"],
     date: json["date"],
     heure: json["heure"],
-    addresse: json["addresse"],
+    adresse: json["adresse"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -37,7 +37,7 @@ class MongoDbModelSoiree{
     "name": name,
     "date": date,
     "heure": heure,
-    "addresse": addresse,
+    "adresse": adresse,
   };
 
 

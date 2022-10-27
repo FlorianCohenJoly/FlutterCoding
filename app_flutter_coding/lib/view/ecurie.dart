@@ -61,7 +61,7 @@ class _MongoDbDisplayStateStable extends State<MongoDbDisplayStable> {
             trailing: IconButton(
               icon: const Icon(Icons.delete),
               onPressed: () {
-                
+
                 setState(() {});
               },
             ),
