@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: InscriptForm(),
+      home: Equitation(),
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: 
