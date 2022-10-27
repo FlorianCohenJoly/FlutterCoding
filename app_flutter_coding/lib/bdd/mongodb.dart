@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:app_flutter_coding/bdd/constant.dart';
-import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
+import 'package:app_flutter_coding/bdd/mongoDbModel.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 class MongoDatabase {
