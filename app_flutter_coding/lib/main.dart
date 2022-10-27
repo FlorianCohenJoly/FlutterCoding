@@ -1,4 +1,5 @@
 import 'package:app_flutter_coding/bdd/mongodb.dart';
+import 'package:app_flutter_coding/bdd/update.dart';
 import 'package:app_flutter_coding/body_page.dart';
 import 'package:app_flutter_coding/connexion/inscription_page.dart';
 import 'package:app_flutter_coding/connexion/login_page.dart';

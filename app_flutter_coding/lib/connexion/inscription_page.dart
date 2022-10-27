@@ -1,10 +1,14 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:app_flutter_coding/animation/delayed_animation.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelStable.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/body_page.dart';
+import 'package:app_flutter_coding/bdd/insert.dart';
+
+import 'package:app_flutter_coding/bdd/update.dart';
 import 'package:flutter/material.dart';
-import 'package:mongo_dart/mongo_dart.dart' as M;
 
 
 class InscriptionPage extends StatelessWidget {
@@ -66,9 +70,7 @@ class InscriptionPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 5),
-            InscriptForm(),
-            SizedBox(height: 125),
-            
+            MongoDbInsert(),            
             SizedBox(height: 90),
             Align(
               alignment: Alignment.centerRight,
@@ -76,7 +78,12 @@ class InscriptionPage extends StatelessWidget {
                 padding: EdgeInsets.only(right: 35),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MongoDbUpdate(),
+                    ),
+                  );
                   },
                   child: DelayedAnimation(
                     delay: 0,

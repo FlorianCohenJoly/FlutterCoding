@@ -22,8 +22,49 @@ class MongoDatabase {
     collection = db.collection(COLLECTION_NAME);
     collectionCours = db.collection("cours");
     print(await collection.find().toList());
+  }
 
-    // Ajouter un users
+
+  static Future<List<Map<String, dynamic >>> getData() async {
+    final arrData = await collection.find().toList();
+    return arrData;
+  }
+
+
+
+  static Future<void> update (MongoDbModel data) async{
+    var result = await collection.findOne({"_id": data.id});
+    result['name'] = data.name;
+    result['mdp'] = data.mdp;
+    result['mail'] = data.mail;
+    result['pp'] = data.pp;
+
+   var response = await collection.save(result);
+   inspect(response);
+  }
+
+
+
+
+  static Future<String> insert(MongoDbModel data) async {
+    try {
+      var result = await collection.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
+
+
+
+
+// Ajouter un users
     // await collection.insertMany([{
     //   "username": "mp2",
     //   "name": "Max Payne2",
@@ -45,8 +86,6 @@ class MongoDatabase {
     // await collection.deleteOne({"username": "mp",});
     // await collection.deleteMany({"username": "mp2",});
 
-    print(await collection.find().toList());
-  }
 
   static Future<String> insertCours(MongoDbModelCours data) async {
     try {
@@ -62,7 +101,7 @@ class MongoDatabase {
     }
   }
 
-  static Future<String> insert(MongoDbModel data) async {
+  static Future<String> insere(MongoDbModel data) async {
     try {
       var result = await collection.insertOne(data.toJson());
       if (result.isSucces) {
@@ -76,7 +115,7 @@ class MongoDatabase {
     }
   }
 
-  static Future<List<Map<String, dynamic >>> getData() async {
+  static Future<List<Map<String, dynamic >>> getDataStable() async {
     final arrData = await stable.find().toList();
     return arrData;
 
@@ -84,7 +123,7 @@ class MongoDatabase {
 
 
 
-  static Future<void> update (MongoDbModelStable data) async{
+  static Future<void> updateStable (MongoDbModelStable data) async{
     var result = await stable.findOne({"_id": data.id});
     result['name'] = data.name;
     result['cavalier'] = data.cavalier;
@@ -96,7 +135,7 @@ class MongoDatabase {
 
 
 
-  static Future<String> insert(MongoDbModelStable data) async {
+  static Future<String> insertStable(MongoDbModelStable data) async {
     try {
       var result = await stable.insertOne(data.toJson());
       if (result.isSucces) {
@@ -113,20 +152,6 @@ class MongoDatabase {
   static Future<String> insertData(MongoDbModel data) async {
     try {
       var result = await stable.insertOne(data.toJson());
-      if (result.isSucces) {
-        return "data inserted";
-      } else {
-        return "erreur";
-      }
-    } catch (e) {
-      print(e.toString());
-      return e.toString();
-    }
-  }
-
-  static Future<String> insertCours(MongoDbModelCours data) async {
-    try {
-      var result = await collectionCours.insertOne(data.toJson());
       if (result.isSucces) {
         return "data inserted";
       } else {
