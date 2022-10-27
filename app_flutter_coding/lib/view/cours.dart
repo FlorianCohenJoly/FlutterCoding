@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
+import 'package:app_flutter_coding/bdd/mongodb.dart';
+import 'package:app_flutter_coding/body_page.dart';
+import 'package:mongo_dart/mongo_dart.dart' as M;
 
 class Cours extends StatefulWidget {
   const Cours({ Key? key }) : super(key: key);
@@ -21,18 +23,6 @@ const List<String> list = <String>['Carrière', 'Manège'];
 
 class _CoursState extends State<Cours> {
 
-  void submitForm(date, heure){
-    NewCours cours = NewCours();
-    cours.terrain = terrainController;
-    cours.date = date;
-    cours.heure = heure;
-    cours.discipline = disciplineController;
-    print(cours.terrain);
-    print(cours.date);
-    print(cours.heure);
-    print(cours.discipline);
-}
-
   final _CoursKey = GlobalKey<FormState>();
 
   String dropdownValue = list.first;
@@ -41,6 +31,7 @@ class _CoursState extends State<Cours> {
   final dateController = TextEditingController();
   final heureController = TextEditingController();
   String? disciplineController;
+  String? dureeController;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +57,7 @@ class _CoursState extends State<Cours> {
                     Container(
                       color: Color.fromARGB(255, 255, 255, 255),
                       child: DropdownButtonFormField(
-                        dropdownColor: Colors.grey[100],
+                        hint: Text("Terrain du cours"),
                         items: const [
                           DropdownMenuItem(
                             value: "carriere",
@@ -104,6 +95,28 @@ class _CoursState extends State<Cours> {
                     Container(
                       color: Color.fromARGB(255, 255, 255, 255),
                       child: DropdownButtonFormField(
+                        hint: Text("Durée du cours"),
+                        items: const [
+                          DropdownMenuItem(
+                            value: "30min",
+                            child: Text("30 minutes")
+                          ),
+                          DropdownMenuItem(
+                            value: "1h",
+                            child: Text("1 heure")
+                          )
+                        ],
+                        onChanged: (String? value) {
+                          setState(() {
+                            dureeController = value;
+                          });
+                        },
+                      )
+                    ),
+                    Container(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      child: DropdownButtonFormField(
+                        hint: Text("Discipline"),
                         items: const [
                           DropdownMenuItem(
                             value: "dressage",
@@ -132,7 +145,13 @@ class _CoursState extends State<Cours> {
                         
                         child: ElevatedButton(
                           onPressed: () {
-                            submitForm(dateController.value.text, heureController.value.text);
+                            _insertData(terrainController!, dateController.value.text, heureController.value.text, dureeController!, disciplineController!);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Body(),
+                              ),
+                            );
                           },
                           child: const Text('Créer'),
                         ),
@@ -147,4 +166,13 @@ class _CoursState extends State<Cours> {
       )
     );
   }
+}
+
+Future<void> _insertData(String terrain, String date, String heure, String duree, String discipline) async {
+
+  var _id = M.ObjectId();
+  final data = MongoDbModelCours(id: _id, terrain: terrain, date: date, heure: heure, duree: duree, discipline: discipline);
+  var result  = await MongoDatabase.insertCours(data);
+
+  //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("insert"+_id.$oid)));
 }
