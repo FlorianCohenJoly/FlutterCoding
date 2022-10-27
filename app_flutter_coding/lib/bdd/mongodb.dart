@@ -11,6 +11,7 @@ class MongoDatabase {
   static var stable;
   static var soiree;
   static var collectionCours;
+  static var collectionConcours;
   static connect() async {
     var db = await Db.create(MONGO_url);
     await db.open();
@@ -21,6 +22,7 @@ class MongoDatabase {
     stable = db.collection(COLLECTION_NAME_STABLE);
     collection = db.collection(COLLECTION_NAME);
     collectionCours = db.collection("cours");
+    collectionConcours = db.collection("concours");
     print(await collection.find().toList());
   }
 
@@ -62,7 +64,7 @@ class MongoDatabase {
 
   static Future<String> insertConcours(MongoDbModelConcours data) async {
     try {
-      var result = await collection.insertOne(data.toJson());
+      var result = await collectionConcours.insertOne(data.toJson());
       if (result.isSucces) {
         return "data inserted";
       } else {
