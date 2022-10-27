@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
+import 'package:app_flutter_coding/bdd/mongoDbModel.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:app_flutter_coding/bdd/insert.dart';
-import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
+import 'package:app_flutter_coding/bdd/mongoDbModel.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/connexion/inscription_page.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +77,7 @@ class _MongoDbUpdateState extends State<MongoDbUpdate> {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (BuildContext context) {
-                      return MongoDbInsert();
+                      return InscriptionPage();
                     },settings: RouteSettings(arguments:data)
                   )).then((value){
                     setState(() {
