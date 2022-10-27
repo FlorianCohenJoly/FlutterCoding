@@ -2,6 +2,8 @@ import 'package:app_flutter_coding/animation/delayed_animation.dart';
 import 'package:app_flutter_coding/body_page.dart';
 import 'package:flutter/material.dart';
 
+import '../view/equitation.dart';
+
 
 
 class LoginPage extends StatelessWidget {
@@ -99,7 +101,7 @@ class LoginPage extends StatelessWidget {
           padding: EdgeInsets.only(right: 35),
           child: TextButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Equitation()));
             },
             child: DelayedAnimation(
               delay: 0,
