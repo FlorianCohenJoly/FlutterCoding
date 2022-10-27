@@ -1,5 +1,6 @@
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/body_page.dart';
+import 'package:app_flutter_coding/connexion/inscription_page.dart';
 import 'package:app_flutter_coding/connexion/login_page.dart';
 import 'package:app_flutter_coding/view/cours.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: InscriptForm(),
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: 
