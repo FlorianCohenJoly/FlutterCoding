@@ -16,6 +16,7 @@ class _MongoDbDisplayStateStable extends State<MongoDbDisplayStable> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Écurie'),
+        backgroundColor: const Color.fromARGB(255, 33, 48, 50),
       ),
       drawer: const MyDrawer(),
       body: SafeArea(

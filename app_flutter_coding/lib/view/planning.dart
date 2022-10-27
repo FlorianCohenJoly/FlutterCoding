@@ -102,7 +102,8 @@ class _TableComplexExampleState extends State<TableComplexExample> {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        title: Text('TableCalendar - Complex'),
+        title: Text('Planning'),
+        backgroundColor: const Color.fromARGB(255, 33, 48, 50),
       ),
       body: Column(
         children: [

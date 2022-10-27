@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/view/drawer.dart';
+import 'package:app_flutter_coding/view/cours.dart';
 
 
 // make a view with the drawer and 3 buttons to navigate to the 3 views
@@ -21,6 +22,7 @@ class _EquitationState extends State<Equitation> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Equitation'),
+        backgroundColor: const Color.fromARGB(255, 33, 48, 50),
       ),
       drawer: const MyDrawer(),
       body: Center(
@@ -35,9 +37,12 @@ class _EquitationState extends State<Equitation> {
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/equitation');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Cours()),
+                  );
                 },
-                child: const Text('Equitation'),
+                child: const Text('Cours'),
               ),
               const SizedBox(
                 height: 50,

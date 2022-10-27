@@ -15,6 +15,7 @@ class _ActualiteState extends State<Actualite> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Actualités"),
+        backgroundColor: const Color.fromARGB(255, 33, 48, 50),
       ),
       body: Center(
         child: Column(
