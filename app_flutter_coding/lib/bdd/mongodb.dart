@@ -51,6 +51,20 @@ class MongoDatabase {
       return e.toString();
     }
   }
+
+  static Future<String> insertConcours(MongoDbModelConcours data) async {
+    try {
+      var result = await collection.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
 }
 
 
