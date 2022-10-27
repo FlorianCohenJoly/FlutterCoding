@@ -63,7 +63,7 @@ class _BodyState extends State<Body> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => InscriptionPage(),
+                        builder: (context) => InscriptForm(),
                       ),
                     );
                   },
