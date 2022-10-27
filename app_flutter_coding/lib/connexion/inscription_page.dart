@@ -1,5 +1,6 @@
 import 'package:app_flutter_coding/animation/delayed_animation.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModelStable.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/body_page.dart';
 import 'package:flutter/material.dart';
@@ -219,7 +220,7 @@ Future<void> _insertData(String name, String mdp, String email, String pp) async
 
   var _id = M.ObjectId();
   final data = MongoDbModel(id: _id, name: name, mdp: mdp, mail: email, pp: pp);
-  var result  = await MongoDatabase.insert(data);
+  var result  = await MongoDatabase.insertData(data);
 
   //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("insert"+_id.$oid)));
 

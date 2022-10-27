@@ -35,9 +35,6 @@ dependencies:
   image_picker: ^0.8.6
   flutter:
     sdk: flutter
-  
-  lottie: ^1.4.3
-
 
 
 
