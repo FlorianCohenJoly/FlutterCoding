@@ -113,11 +113,11 @@ class _InscriptFormState extends State<InscriptForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: 30,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Test')
       ),
-      child: Column(
+      body: Column(
         children: [
           DelayedAnimation(
             delay: 0,

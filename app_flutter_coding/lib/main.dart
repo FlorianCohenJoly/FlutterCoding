@@ -1,5 +1,6 @@
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/body_page.dart';
+import 'package:app_flutter_coding/connexion/inscription_page.dart';
 import 'package:app_flutter_coding/connexion/login_page.dart';
 import 'package:app_flutter_coding/view/drawer.dart';
 import 'package:app_flutter_coding/view/ecurie.dart';
