@@ -1,4 +1,5 @@
 import 'package:app_flutter_coding/bdd/insert.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 
@@ -26,12 +27,50 @@ class _ConcoursListState extends State<ConcoursList> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          children: [
-            
-          ],
+        child: FutureBuilder(
+          future: MongoDatabase.getData(), 
+          builder: (context, AsyncSnapshot snapshot) {
+            if(snapshot.connectionState == ConnectionState.waiting){
+              return Center(
+                child: CircularProgressIndicator()
+              );
+            }
+            else{
+              if(snapshot.hasData){
+                var totalData = snapshot.data.length;
+                print("Données totale" + totalData.toString());
+                return ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (context, index) {
+                    return displayCard(MongoDbModelConcours.fromJson(snapshot.data[index]));
+                  }
+                );
+              }
+              else{
+                return Center(
+                  child: Text("Pas de donnée disponible"),
+                );
+              }
+            }
+          }
         )
       )
+    );
+  }
+
+  Widget displayCard(MongoDbModelConcours data){
+    return Center(child: Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('${data.nom}'),
+          SizedBox(height: 5),
+          Text('${data.adresse}'),
+          SizedBox(height: 5),
+          Text('${data.date}'),
+        ]
+      ),
+    ),
     );
   }
 }

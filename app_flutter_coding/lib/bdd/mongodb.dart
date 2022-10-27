@@ -27,10 +27,9 @@ class MongoDatabase {
   }
 
 
-  static Future getData() async {
-    final arrData = await collection.find().toJson();
-    print(arrData);
-    return arrData;
+  static Future<List<Map<String, dynamic>>> getData() async {
+    final arrData = await collectionConcours.find().toList();
+  return arrData;
   }
 
 
