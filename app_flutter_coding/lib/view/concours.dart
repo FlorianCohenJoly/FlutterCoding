@@ -76,6 +76,12 @@ class _ConcoursListState extends State<ConcoursList> {
             Text('${data.adresse}'),
             SizedBox(height: 5),
             Text('${data.date}'),
+            ElevatedButton(
+              onPressed: () {
+                
+              },
+              child: Text('Participer')
+            ),
           ]
       ),
     ),
