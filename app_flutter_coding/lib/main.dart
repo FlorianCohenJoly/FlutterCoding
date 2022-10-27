@@ -1,4 +1,5 @@
 import 'package:app_flutter_coding/bdd/mongodb.dart';
+import 'package:app_flutter_coding/bdd/update.dart';
 import 'package:app_flutter_coding/body_page.dart';
 import 'package:app_flutter_coding/connexion/inscription_page.dart';
 import 'package:app_flutter_coding/connexion/login_page.dart';
@@ -8,6 +9,8 @@ import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:app_flutter_coding/view/concours.dart';
 import 'package:app_flutter_coding/view/cours.dart';
 import 'package:app_flutter_coding/view/actu.dart';
+import 'package:app_flutter_coding/view/concours.dart';
+import 'package:app_flutter_coding/view/concoursForm.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelStable.dart';

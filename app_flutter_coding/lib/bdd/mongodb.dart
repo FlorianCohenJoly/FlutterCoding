@@ -11,9 +11,8 @@ class MongoDatabase {
   static var soiree;
   static var collection;
   static var collectionCours;
+  static var collectionConcours;
   static connect() async {
-
-    
     var db = await Db.create(MONGO_url);
     await db.open();
     inspect(db);
@@ -25,6 +24,7 @@ class MongoDatabase {
     print(await soiree.find().toList());
     collection = db.collection(COLLECTION_NAME);
     collectionCours = db.collection("cours");
+    collectionConcours = db.collection("concours");
     print(await collection.find().toList());
   }
 
@@ -32,7 +32,11 @@ class MongoDatabase {
   static Future<List<Map<String, dynamic >>> getData() async {
     final arrData = await stable.find().toList();
     return arrData;
+  }
 
+  static Future<List<Map<String, dynamic>>> getDataConcours() async {
+    final arrData = await collectionConcours.find().toList();
+  return arrData;
   }
 
 
@@ -45,6 +49,17 @@ class MongoDatabase {
 
     var response = await stable.save(result);
     inspect(response);
+  }
+
+  static Future<void> update (MongoDbModel data) async{
+    var result = await collection.findOne({"_id": data.id});
+    result['name'] = data.name;
+    result['mdp'] = data.mdp;
+    result['mail'] = data.mail;
+    result['pp'] = data.pp;
+
+   var response = await collection.save(result);
+   inspect(response);
   }
 
 
@@ -63,9 +78,37 @@ class MongoDatabase {
     }
   }
 
+  static Future<String> insert(MongoDbModel data) async {
+    try {
+      var result = await collection.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
   static Future<String> insertData(MongoDbModel data) async {
     try {
       var result = await stable.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
+  static Future<String> insertConcours(MongoDbModelConcours data) async {
+    try {
+      var result = await collectionConcours.insertOne(data.toJson());
       if (result.isSucces) {
         return "data inserted";
       } else {
@@ -146,3 +189,28 @@ class MongoDatabase {
   }
 
 }
+
+
+
+
+// Ajouter un users
+    // await collection.insertMany([{
+    //   "username": "mp2",
+    //   "name": "Max Payne2",
+    //   "email": "mp2@gmail.com",
+    // },
+    // {
+    //    "username": "mp3",
+    //   "name": "Max Payne3",
+    //   "email": "mp3@gmail.com",
+
+    // },
+    // ]);
+
+    // Changer un user
+    // await collection.update(where.eq('username', 'mp'), modify.set('name', 'Max P'));
+    // //await collection.updateMany(where.eq('username', 'mp'), modify.set('name', 'Max P'));
+
+    // Delete un user
+    // await collection.deleteOne({"username": "mp",});
+    // await collection.deleteMany({"username": "mp2",});

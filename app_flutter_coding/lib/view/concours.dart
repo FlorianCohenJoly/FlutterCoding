@@ -1,119 +1,84 @@
+import 'package:app_flutter_coding/bdd/insert.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
+import 'package:app_flutter_coding/view/concoursForm.dart';
 import 'package:flutter/material.dart';
+import 'package:app_flutter_coding/bdd/mongodb.dart';
 
-class Concours extends StatefulWidget {
-  const Concours({ Key? key }) : super(key: key);
+class ConcoursList extends StatefulWidget {
+  const ConcoursList({Key? key}) : super(key: key);
 
   @override
-  _ConcoursState createState() => _ConcoursState();
+  _ConcoursListState createState() => _ConcoursListState();
 }
 
-class NewConcours{
-  String? nom;
-  String? adresse;
-  String? photo;
-  String? date;
-  List? liste;
-}
+class _ConcoursListState extends State<ConcoursList> {
 
-class _ConcoursState extends State<Concours> {
-
-  void submitForm(nom, adresse, photo, date){
-    NewConcours concours = NewConcours();
-    concours.nom = nom;
-    concours.adresse = adresse;
-    concours.photo = photo;
-    concours.date = date;
-  }
-
-  final _ConcoursKey = GlobalKey<FormState>();
-
-  final nomController = TextEditingController();
-  final adresseController = TextEditingController();
-  final photoController = TextEditingController();
-  final dateController = TextEditingController();
-  final listeController = TextEditingController();
+  final Future<String> calculation = Future<String>.delayed(
+    const Duration(seconds: 2),
+        () => 'Data Loaded',
+  );
 
   @override
   Widget build(BuildContext context) {
+
+    Future data = MongoDatabase.getData();
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 33, 48, 50),
-        title: const Text("Concours"),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(30),
-              child: const Text("Ajouter un concours", style: TextStyle(fontSize: 32),)
-            ),
-            Form(
-              key: _ConcoursKey,
-              child: SizedBox(
-                width: 400,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: nomController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
-                        hintText: "Nom du concours"
-                      ),
-                      
-                    ),
-                    TextFormField(
-                      controller: adresseController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
-                        hintText: "Lieu du concours"
-                      ),
-                    ),
-                    TextFormField(
-                      controller: photoController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
-                        hintText: "Insérez votre photo"
-                      ),
-                    ),
-                    TextFormField(
-                      controller: dateController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
-                        hintText: "Date du concours"
-                      ),
-                    ),
-                    TextFormField(
-                      controller: listeController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
-                        hintText: "Liste des participants"
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: Container(
-                        
-                        child: ElevatedButton(
-                          onPressed: () {
-                            submitForm(nomController.value.text, adresseController.value.text, photoController.value.text, dateController.value.text);
-                          },
-                          child: const Text('Submit'),
-                        ),
-                      )
-                    )
-                  ],
-                )
-              )
-            )
-          ],
+        appBar: AppBar(
+            title: Text("Concours"),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Concours(title: "Creer un concours")));
+                },
+                child: Text(''),
+        ),
+            ]
+        ),
+        body: Container(
+            child: FutureBuilder(
+                future: MongoDatabase.getDataConcours(),
+            builder: (context, AsyncSnapshot snapshot) {
+              if(snapshot.connectionState == ConnectionState.waiting){
+                return Center(
+                  child: CircularProgressIndicator()
+                );
+              }
+              else{
+                if(snapshot.hasData){
+                  var totalData = snapshot.data.length;
+                  print("Données totale" + totalData.toString());
+                  return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (context, index) {
+                        return displayCard(MongoDbModelConcours.fromJson(snapshot.data[index]));
+                      }
+                  );
+                }
+                else{
+                  return Center(
+                    child: Text("Pas de donnée disponible"),
+                  );
+                }
+              }
+            }
         )
       )
+    );
+  }
+
+  Widget displayCard(MongoDbModelConcours data){
+    return Center(child: Card(
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('${data.nom}'),
+            SizedBox(height: 5),
+            Text('${data.adresse}'),
+            SizedBox(height: 5),
+            Text('${data.date}'),
+          ]
+      ),
+    ),
     );
   }
 }
