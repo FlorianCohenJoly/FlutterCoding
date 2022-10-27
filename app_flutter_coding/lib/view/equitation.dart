@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/view/drawer.dart';
 import 'package:app_flutter_coding/view/cours.dart';
+import 'package:app_flutter_coding/view/soiree.dart';
 
 
 // make a view with the drawer and 3 buttons to navigate to the 3 views
@@ -60,7 +61,10 @@ class _EquitationState extends State<Equitation> {
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/profil');
+                  Navigator.push
+                  (context,
+                    MaterialPageRoute(builder: (context) => const Soiree()),
+                  );
                 },
                 child: const Text('Soirée'),
               ),

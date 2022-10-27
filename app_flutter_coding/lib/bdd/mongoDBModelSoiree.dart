@@ -7,8 +7,8 @@ MongoDbModelStable mongoDbModelFromJson(String str) => MongoDbModelStable.fromJs
 String mongoDbModelToJson(MongoDbModelStable data) => json.encode(data.toJson());
 class MongoDbModelStable {
   MongoDbModelStable({
-  required  this.id,
-  required  this.name,
+    required  this.id,
+    required  this.name,
 
     required this.cavalier,
     required this.horse,

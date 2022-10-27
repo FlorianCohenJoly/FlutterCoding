@@ -134,7 +134,7 @@ class _CoursState extends State<Cours> {
                           onPressed: () {
                             submitForm(dateController.value.text, heureController.value.text);
                           },
-                          child: const Text('Submit'),
+                          child: const Text('Créer'),
                         ),
                       )
                     )
