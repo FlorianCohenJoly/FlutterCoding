@@ -38,7 +38,7 @@ class LoginPage extends StatelessWidget {
             DelayedAnimation(
               delay: 0,
               child: Text(
-                "Inscrivez vous avec votre adresse email",
+                "Connecte toi avec ton nom d'utilisateur",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25,
@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
             DelayedAnimation(
               delay: 0,
               child: Text(
-                "Il est recommandé de vous connecter avec votre adresse e-mail pour mieux protéger vos informations.",
+                "Connecte toi pour pouvoir accéder à l'application. De plus, il est recommandé de te  connecter avec ton adresse e-mail pour mieux protéger tes informations.",
                 style: TextStyle(
                   color: Colors.grey[600],
                   fontSize: 16,
@@ -143,7 +143,7 @@ class _LoginFormState extends State<LoginForm> {
             delay: 0,
             child: TextField(
               decoration: InputDecoration(
-                labelText: 'Votre email',
+                labelText: "Ton nom d'utilisateur",
                 labelStyle: TextStyle(
                   color: Colors.white,
                 ),

@@ -4,11 +4,16 @@ import 'package:app_flutter_coding/bdd/constant.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelStable.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelSoiree.dart';
 import 'package:mongo_dart/mongo_dart.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 
 class MongoDatabase {
   static var stable;
   static var soiree;
+  static var collection;
+  static var collectionCours;
   static connect() async {
+
+    
     var db = await Db.create(MONGO_url);
     await db.open();
     inspect(db);
@@ -18,6 +23,9 @@ class MongoDatabase {
     stable = db.collection(COLLECTION_NAME);
     print(await stable.find().toList());
     print(await soiree.find().toList());
+    collection = db.collection(COLLECTION_NAME);
+    collectionCours = db.collection("cours");
+    print(await collection.find().toList());
   }
 
 
@@ -44,6 +52,20 @@ class MongoDatabase {
   static Future<String> insert(MongoDbModelStable data) async {
     try {
       var result = await stable.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
+  static Future<String> insertCours(MongoDbModelCours data) async {
+    try {
+      var result = await collectionCours.insertOne(data.toJson());
       if (result.isSucces) {
         return "data inserted";
       } else {
