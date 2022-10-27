@@ -1,5 +1,9 @@
+import 'package:app_flutter_coding/body_page.dart';
 import 'package:flutter/material.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
+import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/bdd/insert.dart';
+import 'package:mongo_dart/mongo_dart.dart' as M;
 
 class Concours extends StatefulWidget {
   const Concours({ Key? key }) : super(key: key);
@@ -102,7 +106,13 @@ class _ConcoursState extends State<Concours> {
                         
                         child: ElevatedButton(
                           onPressed: () {
-                            
+                            _insertData(nomController.value.text, dateController.value.text, adresseController.value.text, photoController.value.text);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Body(),
+                              ),
+                            );
                           },
                           child: const Text('Submit'),
                         ),
@@ -117,4 +127,13 @@ class _ConcoursState extends State<Concours> {
       )
     );
   }
+}
+
+Future<void> _insertData(String nom, String date, String adresse, String photo) async {
+
+  var _id = M.ObjectId();
+  final data = MongoDbModelConcours(id: _id, nom: nom, date: date, adresse: adresse, photo: photo);
+  var result  = await MongoDatabase.insertConcours(data);
+
+  //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("insert"+_id.$oid)));
 }
