@@ -72,8 +72,8 @@ class MongoDatabase {
   ////////// SOIREE //////////
 
   static Future<List<Map<String, dynamic >>> getDataSoiree() async {
-    final arrData2 = await soiree.find().toList();
-    return arrData2;
+    final arrData = await soiree.find().toList();
+    return arrData;
 
   }
 
@@ -97,7 +97,7 @@ class MongoDatabase {
     result['name'] = data.name;
     result['date'] = data.date;
     result['heure'] = data.heure;
-    result['addresse'] = data.addresse;
+    result['adresse'] = data.adresse;
 
     var response = await soiree.save(result);
     inspect(response);
