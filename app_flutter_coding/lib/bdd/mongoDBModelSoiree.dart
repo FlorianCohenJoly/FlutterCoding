@@ -2,36 +2,42 @@ import 'dart:convert';
 
 import 'package:mongo_dart/mongo_dart.dart';
 
-MongoDbModelStable mongoDbModelFromJson(String str) => MongoDbModelStable.fromJson(json.decode(str));
+MongoDbModelSoiree mongoDbModelFromJson(String str) => MongoDbModelSoiree.fromJson(json.decode(str));
 
-String mongoDbModelToJson(MongoDbModelStable data) => json.encode(data.toJson());
-class MongoDbModelStable {
-  MongoDbModelStable({
+String mongoDbModelToJson(MongoDbModelSoiree data) => json.encode(data.toJson());
+class MongoDbModelSoiree{
+  MongoDbModelSoiree({
     required  this.id,
+    required  this.theme,
     required  this.name,
-
-    required this.cavalier,
-    required this.horse,
+    required this.date,
+    required this.heure,
+    required this.addresse,
   });
 
   ObjectId id;
+  String theme;
   String name;
-  String cavalier;
-  String horse;
+  String date;
+  String heure;
+  String addresse;
 
-  factory MongoDbModelStable.fromJson(Map<String, dynamic> json) => MongoDbModelStable(
+  factory MongoDbModelSoiree.fromJson(Map<String, dynamic> json) => MongoDbModelSoiree(
     id: json["_id"],
+    theme: json["theme"],
     name: json["name"],
-    cavalier: json["cavalier"],
-    horse: json["horse"],
-
+    date: json["date"],
+    heure: json["heure"],
+    addresse: json["addresse"],
   );
 
   Map<String, dynamic> toJson() => {
     "_id": id,
+    "theme": theme,
     "name": name,
-    "cavalier": cavalier,
-    "horse": horse,
+    "date": date,
+    "heure": heure,
+    "addresse": addresse,
   };
 
 
