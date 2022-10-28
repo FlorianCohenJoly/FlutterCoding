@@ -62,16 +62,6 @@ class _EquitationState extends State<Equitation> {
               const SizedBox(
                 height: 50,
               ),
-              ElevatedButton(
-                style: style,
-                onPressed: () {
-                  Navigator.push
-                  (context,
-                    MaterialPageRoute(builder: (context) => const Soiree()),
-                  );
-                },
-                child: const Text('Soirée'),
-              ),
             ],
           ),
         ),

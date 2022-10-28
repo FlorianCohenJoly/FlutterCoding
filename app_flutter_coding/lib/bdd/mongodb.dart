@@ -219,7 +219,7 @@ class MongoDatabase {
 
   static Future<String> delete(MongoDbModelStable data) async {
     try {
-      var result = await stable.remove({"_id": data.id});
+      var result = await stable.deleteOne({"_id": data.id});
       if (result.isSucces) {
         return "data deleted";
       } else {
