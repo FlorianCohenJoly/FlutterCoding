@@ -32,7 +32,6 @@ class _MongoDbDisplayStateStable extends State<MongoDbDisplayStable> {
                 } else {
                   if (snapshot.hasData) {
                     var totalData = snapshot.data.length;
-                    print("total data" + totalData.toString());
                     return ListView.builder(
                         itemCount: snapshot.data.length,
                         itemBuilder: (context, index) {
@@ -42,7 +41,7 @@ class _MongoDbDisplayStateStable extends State<MongoDbDisplayStable> {
                         });
                   } else {
                     return Center(
-                      child: Text("Text no available"),
+                      child: Text("Texte non disponible"),
                     );
                   }
                 }

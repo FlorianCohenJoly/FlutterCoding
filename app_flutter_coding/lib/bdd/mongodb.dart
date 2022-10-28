@@ -37,6 +37,11 @@ class MongoDatabase {
   return arrData;
   }
 
+    static Future<List<Map<String, dynamic>>> getDataCours() async {
+    final arrData = await collectionCours.find().toList();
+  return arrData;
+  }
+
 
 
   static Future<void> update (MongoDbModelStable data) async{
