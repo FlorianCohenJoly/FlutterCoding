@@ -1,16 +1,17 @@
 // import 'dart:js';
 
 import 'package:app_flutter_coding/animation/delayed_animation.dart';
+import 'package:app_flutter_coding/bdd/constant.dart';
 import 'package:app_flutter_coding/bdd/display.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/body_page.dart';
 import 'package:app_flutter_coding/bdd/insert.dart';
-
 import 'package:app_flutter_coding/bdd/update.dart';
 import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as M;
+
 
 class InscriptionPage extends StatelessWidget {
   var nameController = new TextEditingController();
@@ -252,11 +253,32 @@ class InscriptionPage extends StatelessWidget {
 
 
 class SignForm extends StatefulWidget {
+  get db => MongoDatabase();
+
   @override
   _SignFormState createState() => _SignFormState();
 }
 
 class _SignFormState extends State<SignForm> {
+
+  checkData(String name, String mdp, String email){
+    widget.db.GetCollection().find({
+      "nom" : name,
+      "mdp" : mdp
+    }).toList().then((value){
+        if(value.length == 1){
+          setState((){
+            print(value[1]);
+            var nom = value[1];
+            return nom;
+          });
+        }
+        else{
+          _insertData(name, mdp, email);
+        }
+      }
+    );
+  }
 
   var nameController = new TextEditingController();
   var mdpController = new TextEditingController();
@@ -347,7 +369,7 @@ class _SignFormState extends State<SignForm> {
               ),
             ),
             onPressed: () {
-                    _insertData(nameController.text,mdpController.text,mailController.text);
+                    _insertData(nameController.text, mdpController.text, mailController.text);//checkData(nameController.text,mdpController.text,mailController.text);
                     Navigator.push(
                       context,
                       MaterialPageRoute(

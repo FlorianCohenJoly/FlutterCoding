@@ -26,6 +26,10 @@ class MongoDatabase {
     print(await collection.find().toList());
   }
 
+  static GetCollection () async{
+    return collection;
+  }
+
 
   static Future<List<Map<String, dynamic >>> getData() async {
     final arrData = await stable.find().toList();
@@ -46,8 +50,6 @@ class MongoDatabase {
     final arrData = await collectionCours.find().toList();
   return arrData;
   }
-
-
 
   static Future<void> update (MongoDbModelStable data) async{
     var result = await stable.findOne({"_id": data.id});
