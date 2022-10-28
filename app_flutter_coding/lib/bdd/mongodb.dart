@@ -184,14 +184,6 @@ class MongoDatabase {
     }
   }
 
-  static Future<List<Map<String, dynamic >>> getDataStable() async {
-    final arrData = await stable.find().toList();
-    return arrData;
-
-  }
-
-
-
   static Future<void> updateStable (MongoDbModelStable data) async{
     var result = await stable.findOne({"_id": data.id});
     result['name'] = data.name;

@@ -19,7 +19,7 @@ class _MongoDbUpdateState extends State<MongoDbUpdate> {
     return Scaffold(
       body: SafeArea(
         child: FutureBuilder(
-          future: MongoDatabase.getData(),
+          future: MongoDatabase.getDataUser(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(

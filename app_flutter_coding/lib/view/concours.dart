@@ -16,7 +16,7 @@ class _ConcoursListState extends State<ConcoursList> {
   @override
   Widget build(BuildContext context) {
 
-    Future data = MongoDatabase.getData();
+    Future data = MongoDatabase.getDataConcours();
     return Scaffold(
         appBar: AppBar(
             title: Text("Concours"),
