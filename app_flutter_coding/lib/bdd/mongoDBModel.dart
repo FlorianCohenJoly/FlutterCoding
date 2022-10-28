@@ -98,7 +98,7 @@ class MongoDbModelConcours {
         adresse: json["adresse"],
         photo: json["photo"],
         date: json["date"],
-        );
+    );
 
     Map<String, dynamic> toJson() => {
         "_id": id,

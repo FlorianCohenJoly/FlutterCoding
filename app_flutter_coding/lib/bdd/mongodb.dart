@@ -3,13 +3,13 @@ import 'dart:developer';
 import 'package:app_flutter_coding/bdd/constant.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelStable.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelSoiree.dart';
-import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:mongo_dart/mongo_dart.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 
 class MongoDatabase {
-  static var collection;
   static var stable;
   static var soiree;
+  static var collection;
   static var collectionCours;
   static var collectionConcours;
   static connect() async {
@@ -27,7 +27,12 @@ class MongoDatabase {
   }
 
 
-  static Future<List<Map<String, dynamic>>> getData() async {
+  static Future<List<Map<String, dynamic >>> getData() async {
+    final arrData = await stable.find().toList();
+    return arrData;
+  }
+
+  static Future<List<Map<String, dynamic>>> getDataConcours() async {
     final arrData = await collectionConcours.find().toList();
   return arrData;
   }
@@ -57,10 +62,37 @@ class MongoDatabase {
 
 
 
+  static Future<String> insert(MongoDbModelStable data) async {
+    try {
+      var result = await stable.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
 
   static Future<String> insereData(MongoDbModel data) async {
     try {
       var result = await collection.insertOne(data.toJson());
+      if (result.isSucces) {
+        return "data inserted";
+      } else {
+        return "erreur";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
+  static Future<String> insertData(MongoDbModel data) async {
+    try {
+      var result = await stable.insertOne(data.toJson());
       if (result.isSucces) {
         return "data inserted";
       } else {
@@ -175,20 +207,6 @@ class MongoDatabase {
     }
   }
 
-  static Future<String> insertData(MongoDbModel data) async {
-    try {
-      var result = await stable.insertOne(data.toJson());
-      if (result.isSucces) {
-        return "data inserted";
-      } else {
-        return "erreur";
-      }
-    } catch (e) {
-      print(e.toString());
-      return e.toString();
-    }
-  }
-
   static Future<String> delete(MongoDbModelStable data) async {
     try {
       var result = await stable.remove({"_id": data.id});
@@ -244,3 +262,28 @@ class MongoDatabase {
   }
 
 }
+
+
+
+
+// Ajouter un users
+    // await collection.insertMany([{
+    //   "username": "mp2",
+    //   "name": "Max Payne2",
+    //   "email": "mp2@gmail.com",
+    // },
+    // {
+    //    "username": "mp3",
+    //   "name": "Max Payne3",
+    //   "email": "mp3@gmail.com",
+
+    // },
+    // ]);
+
+    // Changer un user
+    // await collection.update(where.eq('username', 'mp'), modify.set('name', 'Max P'));
+    // //await collection.updateMany(where.eq('username', 'mp'), modify.set('name', 'Max P'));
+
+    // Delete un user
+    // await collection.deleteOne({"username": "mp",});
+    // await collection.deleteMany({"username": "mp2",});

@@ -31,7 +31,7 @@ class _ConcoursListState extends State<ConcoursList> {
         ),
         body: Container(
             child: FutureBuilder(
-                future: MongoDatabase.getData(),
+                future: MongoDatabase.getDataConcours(),
             builder: (context, AsyncSnapshot snapshot) {
               if(snapshot.connectionState == ConnectionState.waiting){
                 return Center(
