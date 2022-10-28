@@ -23,7 +23,7 @@ class _MongoDbDisplayStateStable extends State<MongoDbDisplayStable> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: FutureBuilder(
-              future: MongoDatabase.getData(),
+              future: MongoDatabase.getDataStable(),
               builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(

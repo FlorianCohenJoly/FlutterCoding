@@ -21,19 +21,9 @@ class MongoDatabase {
   }
 
 
-  static Future<List<Map<String, dynamic >>> getData() async {
-    // get data of stable and soiree
-    var data = await stable.find().toList();
-    var data2 = await soiree.find().toList();
-    // convert data to list of map
-    List<Map<String, dynamic >> list = [];
-    for (var i = 0; i < data.length; i++) {
-      list.add(data[i].toJson());
-    }
-    for (var i = 0; i < data2.length; i++) {
-      list.add(data2[i].toJson());
-    }
-    return list;
+  static Future<List<Map<String, dynamic >>> getDataStable() async {
+    final arrData = await stable.find().toList();
+    return arrData;
 
   }
 
