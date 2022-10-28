@@ -6,6 +6,7 @@ import 'package:app_flutter_coding/body_page.dart';
 import 'package:app_flutter_coding/bdd/insert.dart';
 
 import 'package:app_flutter_coding/bdd/update.dart';
+import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as M;
 
@@ -362,7 +363,7 @@ class _SignFormState extends State<SignForm> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MongoDbDisplay(),
+                        builder: (context) => Equitation(),
                       ),
                     );
                   },
