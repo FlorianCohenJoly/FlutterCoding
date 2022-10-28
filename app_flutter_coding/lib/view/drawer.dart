@@ -4,7 +4,7 @@ import 'package:app_flutter_coding/view/icons.dart';
 import 'package:app_flutter_coding/view/planning.dart';
 import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:app_flutter_coding/view/ecurie.dart';
-import 'package:app_flutter_coding/view/soiree.dart';
+import 'package:app_flutter_coding/view/soireeDisplay.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -54,9 +54,9 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(
                 Icons.cake,
               ),
-              title: const Text('Planning'),
+              title: const Text('Soirée'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Soiree()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MongoDbDisplaySoiree()));
               },
             ),
             ListTile(
