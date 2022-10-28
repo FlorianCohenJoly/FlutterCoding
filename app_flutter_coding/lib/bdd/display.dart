@@ -53,24 +53,89 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
+          
           children: [
-            Text("${data.id}"),
-            SizedBox(
-              height: 5,
+            // ListTile(
+            //       tileColor: Colors.green,
+            //       leading: Icon(Icons.home),
+            //       title: Text(
+            //         "${data.id}",
+            //         style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       ),
+            //     ),
+            ListTile(
+              
+              tileColor: Color.fromARGB(255, 33, 48, 50),
+              title: Text(
+                "Mon compte",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
-            Text("${data.name}"),
-            SizedBox(
-              height: 5,
+            ListTile(
+              tileColor: Color.fromARGB(255, 33, 48, 50),
+              leading: Icon(
+                Icons.account_circle,
+                color: Colors.white,
+              ),
+              title: Text(
+                "${data.name}",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
-            Text("${data.mdp}"),
-            SizedBox(
-              height: 5,
+
+            ListTile(
+              tileColor: Color.fromARGB(255, 33, 48, 50),
+              leading: Icon(
+                Icons.email,
+                color: Colors.white,
+              ),
+              title: Text(
+                "${data.mail}",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
-            Text("${data.mail}"),
-            SizedBox(
-              height: 5,
+
+            ListTile(
+              tileColor: Color.fromARGB(255, 33, 48, 50),
+              leading: Icon(
+                Icons.password,
+                color: Colors.white,
+              ),
+              title: Text(
+                "${data.mdp}",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
-            Text("${data.pp}"),
+
+            ListTile(
+              tileColor: Color.fromARGB(255, 33, 48, 50),
+              leading: Icon(
+                Icons.add_a_photo,
+                color: Colors.white,
+              ),
+              title: Text(
+                "${data.pp}",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),

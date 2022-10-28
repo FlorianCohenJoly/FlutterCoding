@@ -271,7 +271,6 @@ class _LoginFormState extends State<LoginForm> {
               controller: nameController,
 
               decoration: InputDecoration(
-                labelText: 'nom',
                 labelStyle: TextStyle(
                   color: Colors.white,
                 ),
