@@ -32,6 +32,11 @@ class MongoDatabase {
     return arrData;
   }
 
+  static Future<List<Map<String, dynamic >>> getDataUser() async {
+    final arrData = await collection.find().toList();
+    return arrData;
+  }
+
   static Future<List<Map<String, dynamic>>> getDataConcours() async {
     final arrData = await collectionConcours.find().toList();
   return arrData;

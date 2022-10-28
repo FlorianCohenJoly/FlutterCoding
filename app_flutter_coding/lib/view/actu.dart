@@ -25,7 +25,7 @@ class _ActualiteState extends State<Actualite> {
         width: 1000,
         child: Column(
         children: [
-          Text("Concours:", style: TextStyle(fontSize: 32)),
+          Text("Dernier concours:", style: TextStyle(fontSize: 32)),
           FutureBuilder(
               future: MongoDatabase.getDataConcours(),
               builder: (context, AsyncSnapshot snapshot) {
@@ -37,16 +37,10 @@ class _ActualiteState extends State<Actualite> {
                   if (snapshot.hasData) {
                     var totalData = snapshot.data.length;
                     print("total data" + totalData.toString());
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        return displayCardConcours(
-                          MongoDbModelConcours.fromJson(snapshot.data[index]),
-                        );
-                      }
+                    return displayCardConcours(
+                      MongoDbModelConcours.fromJson(snapshot.data.last),
                     );
-                  } 
+                  }
                   else {
                     return Center(
                       child: Text("Texte non disponible"),
@@ -55,7 +49,7 @@ class _ActualiteState extends State<Actualite> {
                 }
               }
             ),
-            Text("Cours:", style: TextStyle(fontSize: 32)),
+            Text("Dernier cours:", style: TextStyle(fontSize: 32)),
             FutureBuilder(
               future: MongoDatabase.getDataCours(),
               builder: (context, AsyncSnapshot snapshot) {
@@ -66,16 +60,10 @@ class _ActualiteState extends State<Actualite> {
                 } else {
                   if (snapshot.hasData) {
                     var totalData = snapshot.data.length;
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        return displayCardCours(
-                          MongoDbModelCours.fromJson(snapshot.data[index]),
-                        );
-                      }
+                    return displayCardCours(
+                      MongoDbModelCours.fromJson(snapshot.data.last),
                     );
-                  } 
+                  }
                   else {
                     return Center(
                       child: Text("Texte non disponible"),
@@ -84,7 +72,7 @@ class _ActualiteState extends State<Actualite> {
                 }
               }
             ),
-            Text("Soirée:", style: TextStyle(fontSize: 32)),
+            Text("Dernière soirée:", style: TextStyle(fontSize: 32)),
             FutureBuilder(
               future: MongoDatabase.getDataSoiree(),
               builder: (context, AsyncSnapshot snapshot) {
@@ -95,16 +83,32 @@ class _ActualiteState extends State<Actualite> {
                 } else {
                   if (snapshot.hasData) {
                     var totalData = snapshot.data.length;
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        return displayCardSoiree(
-                          MongoDbModelSoiree.fromJson(snapshot.data[index]),
-                        );
-                      }
+                    return displayCardSoiree(
+                      MongoDbModelSoiree.fromJson(snapshot.data.last),
                     );
                   } 
+                  else {
+                    return Center(
+                      child: Text("Texte non disponible"),
+                    );
+                  }
+                }
+              }
+            ),
+            Text("Dernier cavalier:", style: TextStyle(fontSize: 32)),
+            FutureBuilder(
+              future: MongoDatabase.getDataUser(),
+              builder: (context, AsyncSnapshot snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  if (snapshot.hasData) {
+                    return displayCardUsers(
+                      MongoDbModel.fromJson(snapshot.data.last),
+                    );
+                  }
                   else {
                     return Center(
                       child: Text("Texte non disponible"),
@@ -195,6 +199,37 @@ class _ActualiteState extends State<Actualite> {
                     title: Text(data.name),
                     content: Text(
                         "Theme: ${data.theme} \nNom: ${data.name} \nDate: ${data.date} \nHeure: ${data.heure} \nAdresse: ${data.adresse}"),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("Close"),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+      ),
+    );
+  }
+
+  Widget displayCardUsers(MongoDbModel data) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+          child: ListTile(
+            title: Text("${data.name}"),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text(data.name),
+                    content: Text(
+                        "Nom: ${data.name} \nEmail: ${data.mail}"),
                     actions: [
                       TextButton(
                         onPressed: () {
