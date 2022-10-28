@@ -1,6 +1,6 @@
 import 'package:app_flutter_coding/animation/delayed_animation.dart';
 import 'package:app_flutter_coding/bdd/display.dart';
-import 'package:app_flutter_coding/bdd/mongoDbModel.dart';
+import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/body_page.dart';
 import 'package:app_flutter_coding/bdd/insert.dart';
@@ -70,7 +70,7 @@ class InscriptionPage extends StatelessWidget {
         ),
       ),
       SizedBox(height: 35),
-      LoginForm(),
+      SignForm(),
       SizedBox(height: 125),
       // DelayedAnimation(
       //   delay: 0,
@@ -248,12 +248,12 @@ class InscriptionPage extends StatelessWidget {
 
 
 
-class LoginForm extends StatefulWidget {
+class SignForm extends StatefulWidget {
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _SignFormState createState() => _SignFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _SignFormState extends State<SignForm> {
 
   var nameController = new TextEditingController();
    var mdpController = new TextEditingController();
