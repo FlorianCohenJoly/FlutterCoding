@@ -1,3 +1,4 @@
+import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModel.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
@@ -149,7 +150,7 @@ class _CoursState extends State<Cours> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Body(),
+                                builder: (context) => Equitation(),
                               ),
                             );
                           },

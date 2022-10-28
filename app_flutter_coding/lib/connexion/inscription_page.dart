@@ -256,120 +256,122 @@ class SignForm extends StatefulWidget {
 class _SignFormState extends State<SignForm> {
 
   var nameController = new TextEditingController();
-   var mdpController = new TextEditingController();
-   var mailController = new TextEditingController();
-   var ppController = new TextEditingController();
+  var mdpController = new TextEditingController();
+  var mailController = new TextEditingController();
+  var ppController = new TextEditingController();
   var _obscureText = true;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: 30,
-      ),
-      child: Column(
-        children: [
-          DelayedAnimation(
-            delay: 0,
-            child: TextField(
-              controller: nameController,
-
-              decoration: InputDecoration(
-                labelText: 'nom',
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-
-
-          SizedBox(height: 30),
-
-          DelayedAnimation(
-            delay: 0,
-            child: TextField(
-              controller: mailController,
-
-              decoration: InputDecoration(
-                labelText: 'email',
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          DelayedAnimation(
-            delay: 0,
-            child: TextField(
-             controller: mdpController,
-
-              obscureText: _obscureText,
-              decoration: InputDecoration(
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                ),
-                labelText: 'Mot de passe',
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.visibility,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 30),
-          DelayedAnimation(
-            delay: 0,
-            child: TextField(
-              controller: ppController,
-
-              decoration: InputDecoration(
-                labelText: 'Votre pp',
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 30),
-          DelayedAnimation(
-        delay: 0,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
-            padding: EdgeInsets.symmetric(
-              horizontal: 125,
-              vertical: 13,
-            ),
-          ),
-          child: Text(
-            'CONFIRM',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          onPressed: () {
-                  _insertData(nameController.text,mdpController.text,mailController.text,ppController.text);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MongoDbDisplay(),
-                    ),
-                  );
-                },
+    return Scaffold(
+      body: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 30,
         ),
-      ),
-          
-        ],
-      ),
+        child: Column(
+          children: [
+            DelayedAnimation(
+              delay: 0,
+              child: TextField(
+                controller: nameController,
+
+                decoration: InputDecoration(
+                  labelText: 'nom',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+
+
+            SizedBox(height: 30),
+
+            DelayedAnimation(
+              delay: 0,
+              child: TextField(
+                controller: mailController,
+
+                decoration: InputDecoration(
+                  labelText: 'email',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            DelayedAnimation(
+              delay: 0,
+              child: TextField(
+              controller: mdpController,
+
+                obscureText: _obscureText,
+                decoration: InputDecoration(
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  labelText: 'Mot de passe',
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      Icons.visibility,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            DelayedAnimation(
+              delay: 0,
+              child: TextField(
+                controller: ppController,
+
+                decoration: InputDecoration(
+                  labelText: 'Votre pp',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            DelayedAnimation(
+          delay: 0,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: StadiumBorder(),
+              padding: EdgeInsets.symmetric(
+                horizontal: 125,
+                vertical: 13,
+              ),
+            ),
+            child: Text(
+              'CONFIRM',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            onPressed: () {
+                    _insertData(nameController.text,mdpController.text,mailController.text,ppController.text);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MongoDbDisplay(),
+                      ),
+                    );
+                  },
+              ),
+            ),
+            
+          ],
+        ),
+      )
     );
   }
 }
