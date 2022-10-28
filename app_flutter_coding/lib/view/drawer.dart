@@ -4,6 +4,7 @@ import 'package:app_flutter_coding/view/icons.dart';
 import 'package:app_flutter_coding/view/planning.dart';
 import 'package:app_flutter_coding/view/equitation.dart';
 import 'package:app_flutter_coding/view/ecurie.dart';
+import 'package:app_flutter_coding/view/soiree.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -47,6 +48,15 @@ class MyDrawer extends StatelessWidget {
               title: const Text('Équitation'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const Equitation()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.cake,
+              ),
+              title: const Text('Planning'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Soiree()));
               },
             ),
             ListTile(
