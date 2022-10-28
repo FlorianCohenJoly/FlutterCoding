@@ -1,4 +1,5 @@
 import 'package:app_flutter_coding/bdd/mongoDBModelSoiree.dart';
+import 'package:app_flutter_coding/view/soiree.dart';
 import 'package:app_flutter_coding/view/drawer.dart';
 import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,13 @@ class _MongoDbDisplaySoiree extends State<MongoDbDisplaySoiree> {
         backgroundColor: const Color.fromARGB(255, 33, 48, 50),
       ),
       drawer: const MyDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const Soiree()));
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: const Color.fromARGB(255, 33, 48, 50),
+      ),
       body: SafeArea(
         // create a button to add a new soiree
         child: Padding(
