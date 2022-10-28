@@ -6,6 +6,7 @@ import 'package:app_flutter_coding/bdd/mongodb.dart';
 import 'package:app_flutter_coding/bdd/mongoDBModelSoiree.dart';
 import 'package:mongo_dart/mongo_dart.dart' as M;
 import 'package:app_flutter_coding/view/equitation.dart';
+import 'package:app_flutter_coding/view/soireeDisplay.dart';
 
 
 class Soiree extends StatefulWidget {
@@ -166,7 +167,7 @@ class _SoireeState extends State<Soiree> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                          builder: (context) => Equitation()
+                                          builder: (context) => MongoDbDisplaySoiree()
                                       )
                                       );
                                     },
