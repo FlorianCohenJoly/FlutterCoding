@@ -119,7 +119,7 @@ class _ActualiteState extends State<Actualite> {
           ]
         ),
       ),
-    ] 
+    ]
     );
   }
 }
