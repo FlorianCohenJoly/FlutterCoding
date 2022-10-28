@@ -15,30 +15,26 @@ class MongoDbModel {
       required  this.id,
       required  this.name,
       required this.mdp,
-      required  this.mail,
-      required this.pp,
+      required  this.mail
     });
 
     ObjectId id;
     String name;
     String mdp;
     String mail;
-    String pp;
 
     factory MongoDbModel.fromJson(Map<String, dynamic> json) => MongoDbModel(
         id: json["_id"],
         name: json["name"],
         mdp: json["mdp"],
-        mail: json["mail"],
-        pp: json["pp"],
+        mail: json["mail"]
     );
 
     Map<String, dynamic> toJson() => {
         "_id": id,
         "name": name,
         "mdp": mdp,
-        "mail": mail,
-        "pp": pp,
+        "mail": mail
     };
 }
 
@@ -82,21 +78,18 @@ class MongoDbModelConcours {
       required  this.id,
       required  this.nom,
       required this.adresse,
-      required  this.photo,
-      required this.date,
+      required this.date
     });
 
     ObjectId id;
     String nom;
     String adresse;
-    String photo;
     String date;
 
     factory MongoDbModelConcours.fromJson(Map<String, dynamic> json) => MongoDbModelConcours(
         id: json["_id"],
         nom: json["nom"],
         adresse: json["adresse"],
-        photo: json["photo"],
         date: json["date"],
     );
 
@@ -104,7 +97,6 @@ class MongoDbModelConcours {
         "_id": id,
         "nom": nom,
         "adresse": adresse,
-        "photo": photo,
         "date": date,
     };
 }

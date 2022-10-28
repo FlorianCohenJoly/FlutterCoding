@@ -67,10 +67,6 @@ class _MongoDbDisplayState extends State<MongoDbDisplay> {
               height: 5,
             ),
             Text("${data.mail}"),
-            SizedBox(
-              height: 5,
-            ),
-            Text("${data.pp}"),
           ],
         ),
       ),

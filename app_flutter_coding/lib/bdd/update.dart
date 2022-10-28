@@ -67,10 +67,6 @@ class _MongoDbUpdateState extends State<MongoDbUpdate> {
                   height: 5,
                 ),
                 Text("${data.mail}"),
-                SizedBox(
-                  height: 5,
-                ),
-                Text("${data.pp}"),
               ],
             ),
             IconButton(

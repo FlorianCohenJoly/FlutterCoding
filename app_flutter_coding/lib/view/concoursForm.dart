@@ -93,21 +93,13 @@ class _ConcoursState extends State<Concours> {
                         hintText: "Date du concours"
                       ),
                     ),
-                    TextFormField(
-                      controller: listeController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
-                        hintText: "Liste des participants"
-                      ),
-                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: Container(
                         
                         child: ElevatedButton(
                           onPressed: () {
-                            _insertData(nomController.value.text, dateController.value.text, adresseController.value.text, photoController.value.text);
+                            _insertData(nomController.value.text, dateController.value.text, adresseController.value.text);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -130,10 +122,10 @@ class _ConcoursState extends State<Concours> {
   }
 }
 
-Future<void> _insertData(String nom, String date, String adresse, String photo) async {
+Future<void> _insertData(String nom, String date, String adresse) async {
 
   var _id = M.ObjectId();
-  final data = MongoDbModelConcours(id: _id, nom: nom, date: date, adresse: adresse, photo: photo);
+  final data = MongoDbModelConcours(id: _id, nom: nom, date: date, adresse: adresse);
   var result  = await MongoDatabase.insertConcours(data);
 
   //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("insert"+_id.$oid)));

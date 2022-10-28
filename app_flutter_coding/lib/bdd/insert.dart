@@ -30,7 +30,6 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
       nameController.text = data.name;
       mdpController.text = data.mdp;
       mailController.text = data.mail;
-      ppController.text = data.pp;
       _checkInsertUpdate = "Update";
     }
 
@@ -109,10 +108,10 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
               onPressed: () {
                 if (_checkInsertUpdate == "Update") {
                   _updateData(data.id, nameController.text, mdpController.text,
-                      mailController.text, ppController.text);
+                      mailController.text);
                 } else {
                   _insertData(nameController.text, mdpController.text,
-                      mailController.text, ppController.text);
+                      mailController.text);
                 }
 
                 child:
@@ -126,26 +125,26 @@ class _MongoDbInsertState extends State<MongoDbInsert> {
   }
 
   Future<void> _updateData(
-      var id, String name, String mdp, String mail, String pp) async {
+      var id, String name, String mdp, String mail) async {
     final updateData =
-        MongoDbModel(id: id, name: name, mdp: mdp, mail: mail, pp: pp);
+        MongoDbModel(id: id, name: name, mdp: mdp, mail: mail);
       await MongoDatabase.updateData(updateData)
         .whenComplete(() => Navigator.pop(context));
   }
 
   Future<void> _insertData(
-      String name, String mdp, String mail, String pp) async {
+      String name, String mdp, String mail) async {
     var _id = M.ObjectId();
     final data =
-        MongoDbModel(id: _id, name: name, mdp: mdp, mail: mail, pp: pp);
+        MongoDbModel(id: _id, name: name, mdp: mdp, mail: mail);
     var result = await MongoDatabase.insertData(data);
   }
 
   Future<void> _insertDataConcours(
-      String nom, String adresse, String photo, String date) async {
+      String nom, String adresse, String date) async {
     var _id = M.ObjectId();
     final data =
-        MongoDbModelConcours(id: _id, nom: nom, adresse: adresse, photo: photo, date: date);
+        MongoDbModelConcours(id: _id, nom: nom, adresse: adresse, date: date);
     var result = await MongoDatabase.insertConcours(data);
   }
 }

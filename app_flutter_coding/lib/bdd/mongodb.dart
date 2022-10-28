@@ -64,7 +64,6 @@ class MongoDatabase {
     result['name'] = data.name;
     result['mdp'] = data.mdp;
     result['mail'] = data.mail;
-    result['pp'] = data.pp;
 
    var response = await collection.save(result);
    inspect(response);
