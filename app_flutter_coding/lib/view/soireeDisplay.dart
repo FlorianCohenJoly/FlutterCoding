@@ -20,10 +20,11 @@ class _MongoDbDisplaySoiree extends State<MongoDbDisplaySoiree> {
       ),
       drawer: const MyDrawer(),
       body: SafeArea(
+        // create a button to add a new soiree
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: FutureBuilder(
-              future: MongoDatabase.getData(),
+              future: MongoDatabase.getDataSoiree(),
               builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
@@ -58,28 +59,27 @@ class _MongoDbDisplaySoiree extends State<MongoDbDisplaySoiree> {
         padding: const EdgeInsets.all(10.0),
         child: ListTile(
           title: Text(data.name),
-          subtitle: Text(data.theme),
-          trailing: Text(data.date),
+          subtitle: Text(data.date),
+          trailing: Text(data.heure),
           onTap: () {
             showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: Text(data.name),
-                  content: Text(data.date + " " + data.heure + " " + data.adresse),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text("OK"),
-                    ),
-                  ],
-                );
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text(data.name),
+                    content: Text(data.theme + " " + data.date + " " + data.heure),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('Confirm Invite'),
+                      ),
+                    ],
+                  );
+                });
               },
-            );
-          },
-        ),
+            ),
       ),
     );
   }
